@@ -1,0 +1,28 @@
+{
+  "name": "Library",
+  "version": "0.0.1",
+  "description": "http://dibaiee.ir/blog/ -- A Backbone.js Tutorial",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdibaiee/Blog-Library"
+  },
+  "keywords": [
+    "Backbone.js"
+  ],
+  "dependencies": {
+    "express": "~3.5.1"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "author": "Mahdi Dibaiee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdibaiee/Blog-Library/issues"
+  },
+  "homepage": "https://github.com/mdibaiee/Blog-Library"
+}

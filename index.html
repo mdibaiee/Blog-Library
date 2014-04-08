@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>کتاب‌خانه</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' href='css/main.css'>
+  </head>
+  
+  <body>
+  
+    <script type='text/x-handlebars-template' id='template'>
+      {{#each this}}
+        <div {{#unless available}}class='unavailable'{{/unless}} data-id='{{id}}'>
+          <h3><a href='#b/{{id}}'>{{name}}</a></h3>
+          <hr>
+          <p>{{desc}}</p>
+          <span>نوشته‌ی {{author}}</span>
+          <br />
+          <button class='remove'>حذف</button>
+        </div>
+      {{/each}}
+      <p id='length'>{{length}} کتاب</p>
+
+      <a href='#add'> اضافه کردن کتاب </a>
+    </script>
+
+    <div id='container'>
+
+    </div>
+
+    <form action='#' id='addForm'>
+      <label for='name'>نام کتاب</label>
+      <input id='name'>
+
+      <label for='desc'>توضیحات</label>
+      <input id='desc'>
+
+      <label for='author'>نویسنده</label>
+      <input id='author'>
+
+      <label for='available'>موجود است؟</label>
+      <input type='checkbox' id='available'>
+      <button>ثبت</button>
+    </form>
+    
+    <script src='js/libs/handlebars.min.js'></script>
+    <script src='js/libs/underscore.min.js'></script>
+    <script src='js/libs/zepto.min.js'></script>
+    <script src='js/libs/backbone.min.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+  
+</html>
