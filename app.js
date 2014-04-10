@@ -1,9 +1,11 @@
 var express = require('express'),
-    app = express(),
     fs = require('fs');
 
-app.use(express.static(__dirname + '/'))
+app = express();
+
+app.use(express.static(__dirname + '/client'))
 app.use(express.bodyParser());
+app.listen(8000);
 
 app.get('/list', function(req, res) {
   res.sendfile('books.json');
@@ -28,4 +30,3 @@ app.post('/list', function(req, res) {
   fs.writeFileSync(__dirname + '/books.json', JSON.stringify(json));
 })
 
-app.listen(8000);

@@ -32,11 +32,15 @@ body, html {
   border-color: #FFB1AF !important;
 }
 #addForm {
-  display: none;
   text-align: center;
   width: 20rem;
   height: auto;
   margin: 1rem auto;
+  transition: all 0.5s;
+}
+.hidden {
+  opacity: 0;
+  transition: all 0.5s;
 }
 #addForm input {
   width: 90%;

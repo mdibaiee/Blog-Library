@@ -22,7 +22,8 @@ var BooksView = Backbone.View.extend({
   el: $('#container'),
   template: Handlebars.compile( $('#template').html() ),
   events: {
-    'click .remove': 'remove'
+    'click .remove': 'remove',
+    'click .add': 'add'
   },
   initialize: function() {
     this.listenTo(this.model, 'all', this.render);
@@ -39,21 +40,9 @@ var BooksView = Backbone.View.extend({
     var book = $(e.currentTarget).parent();
     var id = +book.attr('data-id');
     this.model.get(id).destroy();
-  }
-});
-
-var Router = Backbone.Router.extend({
-  routes: {
-    'b/:id': 'showBook',
-    'add': 'add',
-    '*other': 'defaultRoute'
   },
-  showBook: function(id) {
-    view.model = list.get(+id);
-    view.render();
-  },
-  add: function() {
-    $('#addForm').css('display', 'block');
+  add: function(e) {
+    $('#addForm').removeClass('hidden');
     $('#addForm').submit(function() {
       var data = {};
       $(this).children('input').each(function() {
@@ -64,6 +53,17 @@ var Router = Backbone.Router.extend({
       list.create(new Book(data));
       return false;
     })
+  }
+});
+
+var Router = Backbone.Router.extend({
+  routes: {
+    'b/:id': 'showBook',
+    '*other': 'defaultRoute'
+  },
+  showBook: function(id) {
+    view.model = list.get(+id);
+    view.render();
   },
   defaultRoute: function() {
     view.model = list;
